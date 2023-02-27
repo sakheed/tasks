@@ -112,7 +112,7 @@ export function makeMath(addends: number[]): string {
     const add = function (x: number, y: number) {
         return x + y;
     };
-    let sum = addends.reduce(add, 0);
+    const sum = addends.reduce(add, 0);
 
     if (sum === 0) {
         return "0=0";
@@ -120,8 +120,8 @@ export function makeMath(addends: number[]): string {
 
     const strings = addends.map((x) => x.toString());
     const nums = [...strings];
-    let first = `${sum}=${nums}`;
-    let second = first.replaceAll(",", "+");
+    const first = `${sum}=${nums}`;
+    const second = first.replaceAll(",", "+");
 
     return second;
 }
@@ -136,7 +136,7 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    let helper = function (x: number) {
+    const helper = function (x: number) {
         if (x < 0) {
             positive = false;
         }
