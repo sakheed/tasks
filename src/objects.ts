@@ -11,15 +11,15 @@ export function makeBlankQuestion(
     type: QuestionType
 ): Question {
     const blankQuestion = {
-        "id": id,
-        "name": name,
-        "type": type,
-        "body": "",
-        "expected": "",
-        "options": [],
-        "points": 1,
-        "published": false,
-    }
+        id: id,
+        name: name,
+        type: type,
+        body: "",
+        expected: "",
+        options: [],
+        points: 1,
+        published: false,
+    };
     return blankQuestion;
 }
 
