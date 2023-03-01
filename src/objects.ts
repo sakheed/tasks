@@ -19,7 +19,7 @@ export function makeBlankQuestion(
         options: [],
         points: 1,
         published: false,
-    };
+    }
     return blankQuestion;
 }
 
