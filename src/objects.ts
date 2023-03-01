@@ -18,8 +18,8 @@ export function makeBlankQuestion(
         expected: "",
         options: [],
         points: 1,
-        published: false,
-    }
+        published: false
+    };
     return blankQuestion;
 }
 
@@ -52,7 +52,9 @@ export function isValid(question: Question, answer: string): boolean {
     //     return question.options.includes(answer);
     // }
 
-    return question.type === "multiple_choice_question" ? question.options.includes(answer) : true;
+    return question.type === "multiple_choice_question"
+        ? question.options.includes(answer)
+        : true;
 }
 
 /**
@@ -62,7 +64,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return `${question.id}: ${question.name.substring(0,10)}`;
+    return `${question.id}: ${question.name.substring(0, 10)}`;
 }
 
 /**
@@ -83,8 +85,8 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    if (question.type === "multiple_choice_question"){
-        return `# ${question.name}\n${question.body}\n- ${question.options[0]}\n- ${question.options[1]}\n- ${question.options[2]}`
+    if (question.type === "multiple_choice_question") {
+        return `# ${question.name}\n${question.body}\n- ${question.options[0]}\n- ${question.options[1]}\n- ${question.options[2]}`;
     }
     return `# ${question.name}\n${question.body}`;
 }
@@ -94,7 +96,7 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    const newquestion = {...question, name: `${newName}`};
+    const newquestion = { ...question, name: `${newName}` };
     return newquestion;
 }
 
@@ -104,7 +106,7 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    const newquestion = {...question, published: !question.published}
+    const newquestion = { ...question, published: !question.published };
     return newquestion;
 }
 
@@ -115,7 +117,12 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    const newquestion = {...oldQuestion, name: `Copy of ${oldQuestion.name}`, id: id, published: false}
+    const newquestion = {
+        ...oldQuestion,
+        name: `Copy of ${oldQuestion.name}`,
+        id: id,
+        published: false
+    };
     return newquestion;
 }
 
@@ -130,7 +137,7 @@ export function addOption(question: Question, newOption: string): Question {
     const newquestion = {
         ...question,
         options: [...question.options, newOption]
-    }
+    };
     return newquestion;
 }
 
@@ -154,6 +161,6 @@ export function mergeQuestion(
         name: name,
         points: points,
         published: false
-    }
+    };
     return newquestion;
 }
