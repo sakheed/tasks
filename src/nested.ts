@@ -195,7 +195,10 @@ export function changeQuestionTypeById(
     const new_question = {
         ...questions[target],
         type: newQuestionType,
-        options: newQuestionType !== "multiple_choice_question" ? [] : new_questions[target].options
+        options:
+            newQuestionType !== "multiple_choice_question"
+                ? []
+                : new_questions[target].options
     };
     new_questions[target] = new_question;
     return new_questions;
@@ -245,6 +248,10 @@ export function duplicateQuestionInArray(
 ): Question[] {
     const new_questions = [...questions];
     const target = questions.findIndex((x) => x.id === targetId);
-    new_questions.splice(target + 1, 0, duplicateQuestion(newId, questions[target]));
+    new_questions.splice(
+        target + 1,
+        0,
+        duplicateQuestion(newId, questions[target])
+    );
     return new_questions;
 }
