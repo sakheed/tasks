@@ -10,17 +10,23 @@ export function CycleHoliday(): JSX.Element {
     4) Holi: 🕺
     5) Christmas: 🤶
     */
-    const [holiday, setHoliday] = useState<string>("☘️")
+    const [holiday, setHoliday] = useState<string>("☘️");
     const holidays_alphabetically = ["🥳", "🤶", "🪔", "🕺", "☘️"];
     const holidays_monthly = ["🕺", "☘️", "🪔", "🥳", "🤶"];
 
     function changeByMonth(): void {
-        const length = holidays_monthly.length
-        setHoliday(holidays_monthly[(holidays_monthly.indexOf(holiday) + 1 ) % length]);
+        const length = holidays_monthly.length;
+        setHoliday(
+            holidays_monthly[(holidays_monthly.indexOf(holiday) + 1) % length]
+        );
     }
     function changebyAlphabet(): void {
-        const length = holidays_alphabetically.length
-        setHoliday(holidays_alphabetically[(holidays_alphabetically.indexOf(holiday) + 1 ) % length]);
+        const length = holidays_alphabetically.length;
+        setHoliday(
+            holidays_alphabetically[
+                (holidays_alphabetically.indexOf(holiday) + 1) % length
+            ]
+        );
     }
     return (
         <div>
