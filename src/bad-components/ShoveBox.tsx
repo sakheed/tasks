@@ -12,7 +12,7 @@ function ShoveBoxButton({
         <Button onClick={() => setPosition(4 + position)}>Shove the Box</Button>
     );
 }
-
+//this function should just make the Box object
 function MoveableBox(position: number): JSX.Element {
     //const [position, setPosition] = useState<number>(10);
     return (
@@ -30,7 +30,7 @@ function MoveableBox(position: number): JSX.Element {
         ></div>
     );
 }
-
+//This function should actually move the box so first make position and setPosition, and then make box = an instance of the Moveable box with the given position parameter
 export function ShoveBox(): JSX.Element {
     const [position, setPosition] = useState<number>(10);
     const box = MoveableBox(position);
